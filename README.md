@@ -5,14 +5,14 @@
 
 
 2.) [Product Specs](#product-specs) 
-- [User Stories (Required & Optional)](#user-stories)
-- [Screens](#screens)
-- [Navigation](#navigation)
+-  <span style="text-decoration: none;">[User Stories (Required & Optional)](#user-stories)
+-  <span style="text-decoration: none;">[Screens](#screens)
+-  <span style="text-decoration: none;">[Navigation](#navigation)
   
 3.) [WireFrames](#wireframes)
-- [Sketch](#sketch)
-- [Digital Mockup](#digital-mockup)
-- [Bonus](#bonus)
+-  <span style="text-decoration: none;">[Sketch](#sketch)
+-  <span style="text-decoration: none;">[Digital Mockup](#digital-mockup)
+-  <span style="text-decoration: none;">[Bonus](#bonus)
 
 ## Overview
 ### Description
