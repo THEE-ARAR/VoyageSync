@@ -5,7 +5,7 @@
 
 
 2.) [Product Specs](#product-specs) 
--  <span style="text-decoration: none;">[User Stories (Required & Optional)](#user-stories)
+-  <a href="#user-stories" style="color: inherit;">[User Stories (Required & Optional)](#user-stories)
 -  <span style="text-decoration: none;">[Screens](#screens)
 -  <span style="text-decoration: none;">[Navigation](#navigation)
   
