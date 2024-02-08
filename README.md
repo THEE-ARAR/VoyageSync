@@ -96,5 +96,8 @@ Allows users to tailor their journey based on their preference and interest for 
 ![Wireframe](images/wireframe.png)
 
 ### Digital Mockup
-
+![Messages](images/Messages.png)
+![Maps](images/maps1)
+![Maps](images/maps2)
+![Profile](images/profile)
 
