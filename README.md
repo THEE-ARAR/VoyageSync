@@ -68,12 +68,33 @@ Allows users to tailor their journey based on their preference and interest for 
 - Profile / Settings Screen
   - This will have application settings, alongside setting for the user. The user will be able to change their image, name, and any contact information. The user will also be able to add / change / delete preferences.
 ### 3.) Naviagation
-
+#### Tab Navigation 
+- Messages
+- Maps
+- Home
+- Explore
+- Profile / Settings
+#### Flow Navigation
+- Login -> Sign Up if no log in is available
+- Home "Trips": List of upcoming tips / in progress trips
+  - Create new Trip
+  - Trip Itinerary 
+- Explore: Places the user might be interest in exploring
+  - Destinations are clickable with a pop-up screen that shows destination details
+    - Create New trip will be a button user can click on destination to create a new trip
+- Messages
+  - Group Chat Messages will be contain a screen for message thread of all users going on the trip
+  - Direct Message will contain private messages between two users
+  - Create Direct Message will allow users to choose who they want to message
+- Profile / Settings
+  - List of options for users to choose from each will display its own content of information on its own screen
+- Maps
+  - Map of users live location, if user is clicked information about their location will pop up
+  - Destination Location, if clicked will show information about the trip
 ## WireFrames
-![Wireframe](images/wireframe.png)
-
 ### Sketch
+![Wireframe](images/wireframe.png)
 
 ### Digital Mockup
 
-### Bonus
+
