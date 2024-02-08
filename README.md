@@ -70,7 +70,7 @@ Allows users to tailor their journey based on their preference and interest for 
 ### 3.) Naviagation
 
 ## WireFrames
-![Wireframe](images/wireframes.png)
+![Wireframe](images/wireframe.png)
 
 ### Sketch
 
