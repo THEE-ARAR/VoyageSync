@@ -98,8 +98,73 @@ Allows users to tailor their journey based on their preference and interest for 
 ![Profile](images/profile)
 
 ## Schema
-### User
+### Models
+#### User
 |Property|Type|Description|
 | :---: | :---: | :---: |
+|userID | String |Default Field|
+|username | String |user username credentials |
+|email | String |user email credentials|
+|password | String |user password credentials|
+|profileImg | File |user profile image|
+|preferences | Array |e.g. food, weather/climate, activites, etc.|
+|locationSharingEnabled | Boolean |does the user want to share location|
+|emergencyContactInfo | String |user emergrency contact|
+|friendsList | Array |references other **User objects**|
+|trips | Array |reference to **Trip objects**|
+|notificationSetting | Array |pushNotificationsEnabled: Boolean, inAppNotificationsEnabled: Boolean|
 
+#### Trip
+|Property|Type|Description|
+| :---: | :---: | :---: |
+|tripID | String |Default Field|
+|user | Pointer |reference to owner of trip|
+|name | String | name of trip|
+|budget | Number |budget for trip|
+|totalCost | Number |total cost of trip|
+|members | Array of pointers |reference to **User objects**|
+|startDate| DateTime | start date of trip|
+|endDate| DateTime | end date of trip|
+|flightDates | Array |reference to **DateTime objects**|
+|accommodations | Array |reference to **Accommodation objects**|
+|itinerary | Array |reference to **Itinerary objects**|
+|progress | String |planning, in progress, completed|
 
+#### Message
+|Property|Type|Description|
+| :---: | :---: | :---: |
+|messageID | String |Default Field|
+|sender | reference |reference to **user object** sender of message|
+|receiver | reference |reference to **user object** receiver of message|
+|content | String |content of the message|
+|timestamp | DateTime |when message was sent|
+|isRead | Boolean |been read by the recipient|
+|notificationSent | Boolean |notification sent to recipient|
+|image | File |image or GIF file sent|
+|messageType | String |e.d., text, image, GIF, etc.|
+
+#### Accommodation
+|Property|Type|Description|
+| :---: | :---: | :---: |
+|accommodationID | String |Default Field|
+|name| String |e.g., hotel name|
+|location| String |e.g., address|
+|checkInDate| DateTime |Day / Time of check in|
+|checkOutDate| DateTime |Day / Time of check out|
+
+#### Itinerary
+|Property|Type|Description|
+| :---: | :---: | :---: |
+|itineraryID | String |Default Field|
+|date| DateTime |Day / Time of activity|
+|activity| String |e.g., name of activity|
+|location| String |e.g., name of place|
+|notes| String | optional| 
+
+### Networking
+Authenication Services: Firebase Authentication
+Backend Database : Firebase Realtime Database
+Messaging: Firebase Cloud Messaging (FCM)
+Map: Google Maps SDK
+Location Sharing: Device Location Service
+Other: Backend Service to fetch and update data
