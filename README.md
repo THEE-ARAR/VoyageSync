@@ -163,8 +163,13 @@ Allows users to tailor their journey based on their preference and interest for 
 
 ### Networking
 Authenication Services: Firebase Authentication
+
 Backend Database : Firebase Realtime Database
+
 Messaging: Firebase Cloud Messaging (FCM)
+
 Map: Google Maps SDK
+
 Location Sharing: Device Location Service
+
 Other: Backend Service to fetch and update data
