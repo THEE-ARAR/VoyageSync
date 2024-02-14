@@ -4,14 +4,10 @@
 1.) [Overview](#overview)
 
 2.) [Product Specs](#product-specs) 
--  User Stories (Required & Optional)
--  Screens
--  Navigation
   
 3.) [WireFrames](#wireframes)
--  Sketch
--  Digital Mockup
--  Bonus
+
+4.) [Schema](#schema)
 
 ## Overview
 ### Description
@@ -96,8 +92,14 @@ Allows users to tailor their journey based on their preference and interest for 
 ![Wireframe](images/wireframe.png)
 
 ### Digital Mockup
-![Messages](images/Messages.png)
+![Messages](images/Messages.png)<img src="https://github.com/THEE-ARAR/VoyageSync/blob/64fea6d7ac0776e84d16e8612e8c860b88b4ad14/images/Messages.png" width="50" height="50">
 ![Maps](images/maps1)
 ![Maps](images/maps2)
 ![Profile](images/profile)
+
+## Schema
+### User
+|Property|Type|Description|
+| :---: | :---: | :---: |
+
 
