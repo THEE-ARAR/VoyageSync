@@ -2,17 +2,11 @@ package edu.famu.voyagesync.services;
 
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.auth.UserRecord;
 import com.google.firebase.cloud.FirestoreClient;
 import edu.famu.voyagesync.models.Users;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 @Service
@@ -78,5 +72,20 @@ public class UsersService {
 
     }
 
+    public WriteResult updateUser(String userID, String email, String password, String name, String username, String profileImg) throws ExecutionException, InterruptedException{
 
+        String[] allowed = {"email", "username", "password", "name", "profileImg"};
+        List<String>  allowedFields = Arrays.asList(allowed);
+        Map<String, Object> updateValues = new HashMap<>();
+
+        if (email != null & allowedFields.contains("email")){updateValues.put("email", email);}
+        if (username != null & allowedFields.contains("username")){updateValues.put("username", username);}
+        if (password != null & allowedFields.contains("password")){updateValues.put("password", password);}
+        if (name != null & allowedFields.contains("name")){updateValues.put("name", name);}
+        if(profileImg != null & allowedFields.contains("profileImg")){updateValues.put("profileImg", profileImg);}
+
+        DocumentReference userDoc = firestore.collection("Users").document(userID);
+        ApiFuture<WriteResult> result = userDoc.update(updateValues);
+        return result.get();
+    }
 }

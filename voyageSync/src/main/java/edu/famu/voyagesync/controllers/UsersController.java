@@ -75,13 +75,29 @@ public class UsersController {
                     user.getEmergencyContactInfo(),
                     user.isLocationSharingEnabled(),
                     notificationSettings,
-                    user.getPreferences()
+                    preferences
             );
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(new ApiResponseFormat<>(true, "User sucessfully created.", userID, null));
         } catch (ExecutionException | InterruptedException e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ApiResponseFormat<>(false, "Error creating user.", null, e));
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> updateUser(@PathVariable String id,
+                                             @RequestParam(required = false) String email,
+                                             @RequestParam(required = false) String username,
+                                             @RequestParam(required = false) String password,
+                                             @RequestParam(required = false) String name,
+                                             @RequestParam(required = false) String profileImg) {
+        try {
+            usersService.updateUser(id, email, username, password, name, profileImg);
+            return ResponseEntity.ok("User updated successfully.");
+        } catch (ExecutionException | InterruptedException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error updating user: " + e.getMessage());
         }
     }
 
