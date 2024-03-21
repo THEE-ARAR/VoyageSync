@@ -29,7 +29,7 @@ public class UsersController {
             List<Users> usersList = usersService.getAllUsers();
             if (usersList.isEmpty())
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(new ApiResponseFormat<>(true, "No Users found.", null, null));
-            return ResponseEntity.ok(new ApiResponseFormat<>(true, "Users retrieved sucessfully.", usersList, null));
+            return ResponseEntity.ok(new ApiResponseFormat<>(true, "Users retrieved successfully.", usersList, null));
         } catch (ExecutionException | InterruptedException e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ApiResponseFormat<>(false, "Error retrieving users.", null, e.getMessage()));
@@ -78,26 +78,74 @@ public class UsersController {
                     preferences
             );
             return ResponseEntity.status(HttpStatus.CREATED)
-                    .body(new ApiResponseFormat<>(true, "User sucessfully created.", userID, null));
+                    .body(new ApiResponseFormat<>(true, "User successfully created.", userID, null));
         } catch (ExecutionException | InterruptedException e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ApiResponseFormat<>(false, "Error creating user.", null, e));
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable String id,
+    @PutMapping("/{user_id}")
+    public ResponseEntity<String> updateUser(@PathVariable(name = "user_id") String userID,
                                              @RequestParam(required = false) String email,
                                              @RequestParam(required = false) String username,
                                              @RequestParam(required = false) String password,
                                              @RequestParam(required = false) String name,
                                              @RequestParam(required = false) String profileImg) {
         try {
-            usersService.updateUser(id, email, username, password, name, profileImg);
+            usersService.updateUser(userID, email, username, password, name, profileImg);
             return ResponseEntity.ok("User updated successfully.");
         } catch (ExecutionException | InterruptedException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Error updating user: " + e.getMessage());
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUser(@RequestParam String emailOrUsername, @RequestParam String password){
+        try{
+            String loginResult = usersService.loginUser(emailOrUsername, password);
+            return ResponseEntity.ok(loginResult);
+        } catch (ExecutionException | InterruptedException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error occurred."+ e.getMessage());
+        }
+    }
+
+    /* Friends List*/
+
+//    Add Friend
+    @PostMapping("/{user_id}/friends")
+    public ResponseEntity<String> addFriend(@PathVariable(name = "user_id") String userID, @RequestParam String friendUsername) {
+        try {
+            usersService.addFriend(userID, friendUsername);
+            return ResponseEntity.ok("Friend added successfully.");
+        } catch (ExecutionException | InterruptedException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error adding friend: " + e.getMessage());
+        }
+
+    }
+//    request friend
+    @PostMapping("/{user_id}/friend-request")
+    public  ResponseEntity<String> requestFriend(@PathVariable(name = "user_id") String userID, @RequestParam String friendUsername){
+        try {
+            usersService.requestFriend(userID, friendUsername);
+            return ResponseEntity.ok("Friend request sent successfully.");
+        } catch (ExecutionException | InterruptedException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error removing friend: " + e.getMessage());
+        }
+    }
+//    delete friend
+    @PostMapping("/{user_id}/friends")
+    public ResponseEntity<String> deleteFriend(@PathVariable(name= "user_id") String userID, @RequestParam String friendUsername){
+        try {
+            usersService.deleteFriend(userID, friendUsername);
+            return ResponseEntity.ok("Friend removed successfully.");
+        } catch (ExecutionException | InterruptedException e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error removing friend: " + e.getMessage());
         }
     }
 
