@@ -109,7 +109,7 @@ Allows users to tailor their journey based on their preference and interest for 
 |profileImg | File |user profile image|
 |preferences | Array |e.g. food, weather/climate, activites, etc.|
 |locationSharingEnabled | Boolean |does the user want to share location|
-|emergencyContactInfo | String |user emergrency contact|
+|emergencyContactInfo | Array |user emergrency contact (name, number, relationship)|
 |friendsList | Array |references other **User objects**|
 |trips | Array |reference to **Trip objects**|
 |notificationSetting | Array |pushNotificationsEnabled: Boolean, inAppNotificationsEnabled: Boolean|
