@@ -173,7 +173,7 @@ Allows users to tailor their journey based on their preference and interest for 
 
 ## Milestones
 ### Midpoint -> Postman
-![Midpoint to Postman gif](images/UsersToPostman.gif)
+![Midpoint to Postman gif](images/UserToPostman.gif)
 ### Milestone 6 -> User
 
 
