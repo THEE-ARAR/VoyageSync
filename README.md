@@ -9,6 +9,8 @@
 
 4.) [Schema](#schema)
 
+5.) [Milestones](#milestones)
+
 ## Overview
 ### Description
 Allows users to tailor their journey based on their preference and interest for an unforgettable experience. Great for solo, group, and first time travelers. 
@@ -168,3 +170,10 @@ Allows users to tailor their journey based on their preference and interest for 
 - Map: Google Maps SDK
 - Location Sharing: Device Location Service
 - Other: Backend Service to fetch and update data
+
+## Milestones
+### Midpoint -> Postman
+![Midpoint to Postman gif](images/UserToPostman.gif)
+### Milestone 6 -> User
+
+
