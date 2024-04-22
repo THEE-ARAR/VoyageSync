@@ -3,6 +3,7 @@ package edu.famu.voyage.services;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
+import edu.famu.voyage.RandomString;
 import edu.famu.voyage.models.Trips;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,6 @@ public class TripsService {
 
     public Trips documentSnapshotToTrip(DocumentSnapshot document) {
         if (document.exists()) {
-            // Extract trip data from the document and create a Trips instance
             return new Trips(
                     document.getId(),
                     document.getString("name"),
@@ -33,7 +33,6 @@ public class TripsService {
                     document.getTimestamp("updatedDate"),
                     document.getBoolean("isComplete"),
                     document.getGeoPoint("location"),
-                    // You may need to handle document references here
                     null, // createdBy
                     null, // members
                     null, // accommodations
@@ -63,8 +62,57 @@ public class TripsService {
         return documentSnapshotToTrip(document);
     }
 
-    // Implement methods for creating, updating, and deleting trips
-    // public void createTrip(Trips trip) { }
-    // public void updateTrip(String tripId, Trips updatedTrip) { }
-    // public void deleteTrip(String tripId) { }
+    // Create Trip
+    public String createTrip(Trips trip) throws ExecutionException, InterruptedException {
+        if (trip.getTripId() == null || trip.getTripId().isEmpty()) {
+            RandomString randomString = new RandomString(20);
+            trip.setTripId(randomString.nextString(20));
+        }
+        DocumentReference tripRef = firestore.collection("Trips").document(trip.getTripId());
+        ApiFuture<WriteResult> future = tripRef.set(trip);
+        // Handle success or failure
+        try {
+            future.get();
+            return trip.getTripId();
+        } catch (InterruptedException | ExecutionException e) {
+            System.err.println("Error creating trip: " + e.getMessage());
+            throw e;
+        }
+    }
+
+    // Delete Trip
+    public String deleteTrip(String tripId) throws ExecutionException, InterruptedException {
+        DocumentReference tripRef = firestore.collection("Trips").document(tripId);
+        ApiFuture<WriteResult> future = tripRef.delete();
+        // Handle success or failure
+        try {
+            future.get();
+            return "Trip deleted successfully";
+        } catch (InterruptedException | ExecutionException e) {
+            System.err.println("Error deleting trip: " + e.getMessage());
+            throw e;
+        }
+    }
+    // Update Trip
+    public String updateTrip(String tripId, Trips updatedTrip) throws ExecutionException, InterruptedException {
+        DocumentReference tripRef = firestore.collection("Trips").document(tripId);
+        ApiFuture<DocumentSnapshot> future = tripRef.get();
+        DocumentSnapshot document = future.get();
+        if (!document.exists()) {
+            return "Trip with ID " + tripId + " does not exist";
+        }
+        ApiFuture<WriteResult> updateFuture = tripRef.set(updatedTrip);
+        // Handle success or failure
+        try {
+            updateFuture.get();
+            return "Trip updated successfully";
+        } catch (InterruptedException | ExecutionException e) {
+            System.err.println("Error updating trip: " + e.getMessage());
+            throw e;
+        }
+    }
 }
+
+
+
+
