@@ -175,5 +175,9 @@ Allows users to tailor their journey based on their preference and interest for 
 ### Midpoint -> Postman
 ![Midpoint to Postman gif](images/UserToPostman.gif)
 ### Milestone 6 -> User
-
+#### Create a User 
+![Create a User gif](images/createAUser.gif)
+#### Delete User
+![Delete a User gif](images/deleteUsers.gif)
+#### Update User
 
