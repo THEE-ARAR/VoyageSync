@@ -5,10 +5,7 @@ import edu.famu.voyage.services.TripsService;
 import edu.famu.voyage.util.ApiResponseFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -52,4 +49,37 @@ public class TripsController {
                         .body(new ApiResponseFormat<>(false, "Error retrieving trip.", null, e.getMessage()));
             }
         }
-    }
+        // Create trip
+        @PostMapping("/")
+        public ResponseEntity<String> createTrip(@RequestBody Trips trip) {
+            try {
+                String tripId = tripsService.createTrip(trip);
+                return new ResponseEntity<>(tripId, HttpStatus.CREATED);
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+        // Update trip
+        @PutMapping("/{tripId}")
+        public ResponseEntity<String> updateTrip(@PathVariable String tripId, @RequestBody Trips updatedTrip) {
+            try {
+                String message = tripsService.updateTrip(tripId, updatedTrip);
+                return new ResponseEntity<>(message, HttpStatus.OK);
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+        // Delete trip
+        @DeleteMapping("/{tripId}")
+        public ResponseEntity<String> deleteTrip(@PathVariable String tripId) {
+            try {
+                String message = tripsService.deleteTrip(tripId);
+                return new ResponseEntity<>(message, HttpStatus.OK);
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+}
