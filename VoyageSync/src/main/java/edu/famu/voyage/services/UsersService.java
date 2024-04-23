@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
+import edu.famu.voyage.RandomString;
 import edu.famu.voyage.models.Users;
 import org.springframework.stereotype.Service;
 
@@ -76,5 +77,27 @@ public class UsersService {
         return documentSnapshotToUser(document);
     }
 
+//    Create User
+    public String createUser(Users user) throws ExecutionException, InterruptedException {
+        if (user.getUserId() == null || user.getUserId().isEmpty()) {
+            RandomString randomString = new RandomString(20);
+            user.setUserId(randomString.nextString(20));
+        }
+
+        Firestore firestore = FirestoreClient.getFirestore();
+
+        DocumentReference documentReference = firestore.collection("Users").document(user.getUserId());
+
+        ApiFuture<WriteResult> result = documentReference.set(user);
+        result.get().getUpdateTime().toString();
+        return user.getUserId();
+    }
+
+//    Delete User
+    public String deleteUser(String userId) throws ExecutionException, InterruptedException {
+        DocumentReference docRef = firestore.collection("Users").document(userId);
+        ApiFuture<WriteResult> result = docRef.delete();
+        return result.get().getUpdateTime().toString();
+    }
 
 }

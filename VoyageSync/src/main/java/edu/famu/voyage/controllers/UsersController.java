@@ -5,11 +5,7 @@ import edu.famu.voyage.services.UsersService;
 import edu.famu.voyage.util.ApiResponseFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -53,5 +49,28 @@ public class UsersController {
         }
     }
 
+//    Create User
+    @PostMapping("/create/")
+    public ResponseEntity<ApiResponseFormat<String>> createUser(@RequestBody Users user){
+        try {
+            String result = usersService.createUser(user);
+            return ResponseEntity.ok(new ApiResponseFormat<>(true, "User created successfully.", result, null));
+        } catch (ExecutionException | InterruptedException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ApiResponseFormat<>(false, "Error creating user.", null, e.getMessage()));
+        }
+    }
+
+//    Delete User
+    @DeleteMapping("/delete/{user_id}")
+    public ResponseEntity<ApiResponseFormat<String>> deleteUser(@PathVariable("user_id") String userId) {
+        try {
+            String result = usersService.deleteUser(userId);
+            return ResponseEntity.ok(new ApiResponseFormat<>(true, "User deleted successfully.", result, null));
+        } catch (ExecutionException | InterruptedException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ApiResponseFormat<>(false, "Error deleting user.", null, e.getMessage()));
+        }
+    }
 
 }
