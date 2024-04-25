@@ -4,12 +4,12 @@ import com.google.api.core.ApiFuture;
 import com.google.cloud.Timestamp;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
+import com.google.firebase.database.GenericTypeIndicator;
 import edu.famu.voyage.RandomString;
 import edu.famu.voyage.models.Trips;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 @Service
@@ -20,6 +20,8 @@ public class TripsService {
     public TripsService() {
         this.firestore = FirestoreClient.getFirestore();
     }
+
+
 
     public Trips documentSnapshotToTrip(DocumentSnapshot document){
         if (document.exists()) {
@@ -66,6 +68,8 @@ public class TripsService {
         return null;
     }
 
+
+
     public List<Trips> getAllTrips() throws ExecutionException, InterruptedException {
         CollectionReference tripsCollection = firestore.collection("Trips");
         ApiFuture<QuerySnapshot> future = tripsCollection.get();
@@ -86,6 +90,7 @@ public class TripsService {
         return documentSnapshotToTrip(document);
     }
 
+    // Create Trip
     public String createTrip(Trips trip) throws ExecutionException, InterruptedException {
         if (trip.getTripId() == null || trip.getTripId().isEmpty()) {
             RandomString randomString = new RandomString(20);
@@ -100,6 +105,36 @@ public class TripsService {
         result.get().getUpdateTime().toString();
         return trip.getTripId();
     }
+
+    // Delete Trip
+    public String deleteTrip(String tripId) throws ExecutionException, InterruptedException{
+        DocumentReference documentReference = firestore.collection("Trips").document(tripId);
+        ApiFuture<WriteResult> result = documentReference.delete();
+        return result.get().getUpdateTime().toString();
+    }
+
+    //    Update Trips
+    public WriteResult updateTrip(String tripId, Map<String, Object> updateValues) throws ExecutionException, InterruptedException {
+        String[] notAllowed = {"createdBy"};
+        List<String> restrictedFields = Arrays.asList(notAllowed);
+        Map<String, Object> formattedValues = new HashMap<>();
+
+        for (Map.Entry<String, Object> entry : updateValues.entrySet()) {
+            String key = entry.getKey();
+            if (!restrictedFields.contains(key)) {
+                formattedValues.put(key, entry.getValue());
+            }
+        }
+
+        formattedValues.put("updatedAt", new Date());
+
+        DocumentReference tripDoc = firestore.collection("Trips").document(tripId);
+        ApiFuture<WriteResult> result = tripDoc.update(formattedValues);
+        return result.get();
+    }
+
+
+//    Filter trips by progress & upcoming (within 2 weeks)
 
 
 }

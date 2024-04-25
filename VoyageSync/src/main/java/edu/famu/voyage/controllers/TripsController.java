@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 @RestController
@@ -60,6 +61,31 @@ public class TripsController {
         } catch (ExecutionException | InterruptedException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ApiResponseFormat<>(false, "Error creating trip.", null, e.getMessage()));
+        }
+    }
+
+    // Delete Trip
+    @DeleteMapping("/delete/{trip_Id}")
+    public  ResponseEntity<ApiResponseFormat<String>> deleteTrip(@PathVariable(name = "trip_Id") String tripId){
+        try{
+            String result = tripsService.deleteTrip(tripId);
+            return ResponseEntity.ok(new ApiResponseFormat<>(true, "Trip deleted successfully.", result, null));
+        } catch (ExecutionException | InterruptedException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ApiResponseFormat<>(false, "Error deleting trip.", null, e.getMessage()));
+        }
+    }
+
+    // Update Trip
+    @PutMapping("/update/{trip_id}")
+    public ResponseEntity<ApiResponseFormat<String>> updateTrip(@PathVariable(name = "trip_id") String tripId, @RequestBody Map<String, Object> updatedValues){
+        try{
+            tripsService.updateTrip(tripId,updatedValues);
+            return ResponseEntity.ok(new ApiResponseFormat<>(true, "Trip updated successfully", tripId, null));
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ApiResponseFormat<>(false, "Error updating trip", null, e.getMessage()));
         }
     }
 
