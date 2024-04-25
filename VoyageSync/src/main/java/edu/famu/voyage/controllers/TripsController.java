@@ -64,17 +64,17 @@ public class TripsController {
         }
     }
 
-    // Delete Trip
-    @DeleteMapping("/delete/{trip_Id}")
-    public  ResponseEntity<ApiResponseFormat<String>> deleteTrip(@PathVariable(name = "trip_Id") String tripId){
-        try{
-            String result = tripsService.deleteTrip(tripId);
-            return ResponseEntity.ok(new ApiResponseFormat<>(true, "Trip deleted successfully.", result, null));
-        } catch (ExecutionException | InterruptedException e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new ApiResponseFormat<>(false, "Error deleting trip.", null, e.getMessage()));
+     // Delete trip
+        @DeleteMapping("/{tripId}")
+        public ResponseEntity<String> deleteTrip(@PathVariable String tripId) {
+            try {
+                String message = tripsService.deleteTrip(tripId);
+                return new ResponseEntity<>(message, HttpStatus.OK);
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
         }
-    }
 
     // Update Trip
     @PutMapping("/update/{trip_id}")
