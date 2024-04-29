@@ -94,7 +94,7 @@ Allows users to tailor their journey based on their preference and interest for 
 ![Wireframe](images/wireframe.png)
 
 ### Digital Mockup
-![Messages](images/Messages.png)<img src="https://github.com/THEE-ARAR/VoyageSync/blob/64fea6d7ac0776e84d16e8612e8c860b88b4ad14/images/Messages.png" width="50" height="50">
+![Messages](images/Messages.png)<img src="https://github.com/THEE-ARAR/VoyageSync/blob/64fea6d7ac0776e84d16e8612e8c860b88b4ad14/images/Messages.png" width="100" height="100">
 ![Maps](images/maps1)
 ![Maps](images/maps2)
 ![Profile](images/profile)
