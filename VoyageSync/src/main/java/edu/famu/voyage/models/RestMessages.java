@@ -1,3 +1,4 @@
+
 @Data
 @NoArgsConstructor
 public class RestMessages extends AMessages{

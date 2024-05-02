@@ -1,18 +1,15 @@
 package edu.famu.voyage.models;
-
 import com.google.cloud.Timestamp;
-import com.google.cloud.firestore.GeoPoint;
-import com.google.cloud.firestore.annotation.DocumentId;
-import lombok.AllArgsConstructor;
+import com.google.cloud.firestore.DocumentReference;
+import edu.famu.taskmanager.models.Users;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.lang.Nullable;
+
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-
-public class Messages extends AMessages {
-
+public class Messages extends edu.famu.taskmanager.models.messages.AMessages {
     private Users senderId;
     private Users receiverId;
 
