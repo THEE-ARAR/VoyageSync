@@ -126,41 +126,6 @@ button:hover {
 }
 
 
-@media (max-width: 780px) {
-    .start-page-main {
-        background-color: #0B7784;
-        width: 150vw;
-        height: 250vh;
-    }
-    .title {
-        font-size: 40px;
-        transform: translateY(-100px);
-    }
-
-    .sub-title {
-        font-size: 30px;
-        transform: translateY(-130px);
-    }
-
-    .greetings h2 {
-        font-size: 30px;
-        transform: translate(10px, -130px);
-    }
-
-    .greetings h3 {
-        font-size: 20px;
-        transform: translate(11px, -150px);
-    }
-
-    .btns-container {
-        transform: translateY(-100px);
-    }
-
-    .btns-container .btn {
-        padding: 15px 20px; /* Smaller padding */
-    }
-}
-
 
 
 
