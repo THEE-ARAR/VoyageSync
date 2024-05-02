@@ -21,6 +21,7 @@ public class Users {
     private String email;
     private String password;
     private String username;
+
     private String profileImg;
     private Map<String, String> emergencyContactInfo;
     private Map<String, List<String>> preferences;
