@@ -133,8 +133,9 @@ public class TripsService {
         return result.get();
     }
 
-
-    //Filter trips by progress & upcoming (within 2 weeks)
+    //Below are the codes for:
+    // - Filtering trips by progress
+    // - Filtering trips by upcoming (within 2 weeks)
     public List<Trips> getTripsByProgress(double minProgress, double maxProgress) throws ExecutionException, InterruptedException {
         CollectionReference tripsCollection = firestore.collection("Trips");
         Query query = tripsCollection.whereGreaterThanOrEqualTo("progress", minProgress)
