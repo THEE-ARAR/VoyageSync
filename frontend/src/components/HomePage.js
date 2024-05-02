@@ -14,7 +14,7 @@ function HomePage() {
     return (
         <div>
             <header>
-                <h1>Welcome to Our Application</h1>
+                <h1>Welcome to VoyageSync</h1>
             </header>
             <nav>
                 <ul>
