@@ -1,0 +1,76 @@
+/* Add your CSS styles here */
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f5; /* Light grey background */
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#message-container {
+    display: flex;
+    flex-direction: column-reverse; /* Newest messages at the bottom */
+}
+
+footer {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+}
+
+#message-form {
+    display: flex;
+    gap: 10px;
+}
+
+#message-input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5c67f2;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4a54e1;
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #ccc;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #bbb;
+}
