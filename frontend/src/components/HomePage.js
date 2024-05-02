@@ -26,8 +26,10 @@ function HomePage() {
                 </ul>
             </nav>
             <div className="content">
-                <p>VoyageSync is your one-stop travel companion. Whether you're exploring new destinations or keeping in touch with friends during your adventures, we've got you covered.</p>
-                <p>From in-app messaging to real-time location sharing, discover all the tools you need to make your travels seamless and exciting. Stay tuned as we continue to add more features that help connect and enhance your travel experiences.</p>
+                <p className="big-text">Bon Voyage!</p>
+                <p className="bubble">Sync is your one-stop travel companion. Whether you're exploring new destinations or keeping in touch with friends during your adventures, we've got you covered!</p>
+                <p className="bubble">We allow YOU to tailor your journey based on your preference and interest for an unforgettable experience. Great for solo, group, and first time travelers.</p>
+                <p className="bubble">From in-app messaging to real-time location sharing, discover all the tools you need to make your travels seamless and exciting. Stay tuned as we continue to add more features that help connect and enhance your travel experiences.</p>
             </div>
         </div>
     );

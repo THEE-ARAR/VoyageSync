@@ -58,3 +58,32 @@ li {
 nav a:focus {
     outline: 3px solid #FE9F67; /* Call-to-Action */
 }
+
+.content {
+    text-align: center; /* Center-aligns all content */
+}
+
+.big-text {
+    font-size: 24px; /* Bigger text */
+    margin: 20px 0; /* Spacing above and below */
+}
+
+.content {
+    text-align: center; /* Center-aligns all content */
+}
+
+.big-text {
+    font-size: 24px; /* Bigger text */
+    margin: 20px 0; /* Spacing above and below */
+    color: #0B7784; /* Optional: Match or coordinate with the bubble colors */
+}
+
+.bubble {
+    background-color: #0B7784; /* Deep teal background */
+    color: white; /* White text */
+    border-radius: 20px; /* Rounded corners for the bubble shape */
+    padding: 20px; /* Padding inside the bubble */
+    margin: 20px auto; /* Increased vertical spacing and horizontal centering */
+    max-width: 80%; /* Maximum width with center alignment */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for more depth */
+}
