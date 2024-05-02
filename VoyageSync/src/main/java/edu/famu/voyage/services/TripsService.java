@@ -134,7 +134,47 @@ public class TripsService {
     }
 
 
-//    Filter trips by progress & upcoming (within 2 weeks)
+    //Filter trips by progress & upcoming (within 2 weeks)
+    public List<Trips> getTripsByProgress(double minProgress, double maxProgress) throws ExecutionException, InterruptedException {
+        CollectionReference tripsCollection = firestore.collection("Trips");
+        Query query = tripsCollection.whereGreaterThanOrEqualTo("progress", minProgress)
+                .whereLessThanOrEqualTo("progress", maxProgress);
+        ApiFuture<QuerySnapshot> future = query.get();
+        List<Trips> tripsList = new ArrayList<>();
+        for (DocumentSnapshot document : future.get().getDocuments()) {
+            Trips trip = documentSnapshotToTrip(document);
+            if (trip != null) {
+                tripsList.add(trip);
+            }
+        }
+        return tripsList;
+    }
+    // Filter upcoming trips within two weeks
+    public List<Trips> getUpcomingTripsWithinTwoWeeks() throws ExecutionException, InterruptedException {
+        CollectionReference tripsCollection = firestore.collection("Trips");
+        Timestamp now = Timestamp.now();
+        Timestamp twoWeeksLater = addDaysToTimestamp(now, 14); // Add 14 days to current timestamp
+        Query query = tripsCollection.whereGreaterThanOrEqualTo("startDate", now)
+                .whereLessThanOrEqualTo("startDate", twoWeeksLater);
+        ApiFuture<QuerySnapshot> future = query.get();
+        List<Trips> tripsList = new ArrayList<>();
+        for (DocumentSnapshot document : future.get().getDocuments()) {
+            Trips trip = documentSnapshotToTrip(document);
+            if (trip != null) {
+                tripsList.add(trip);
+            }
+        }
+        return tripsList;
+    }
 
-
+    // Helper method to add days to a timestamp
+    private Timestamp addDaysToTimestamp(Timestamp timestamp, int days) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(timestamp.getSeconds() * 1000); // Convert seconds to milliseconds
+        calendar.add(Calendar.DAY_OF_MONTH, days);
+        return Timestamp.of(calendar.getTime());
+    }
 }
+
+
+
