@@ -97,6 +97,8 @@
     color: #FE9F67;
 }
 
+/* Forgot Password Style Rules*/
+
 .airplane {
     transform: translate(-700px, -40px);
     width: 600px;
@@ -107,10 +109,117 @@
 }
 
 .small-cloud {
-    transform: translate(300px, -550px);
+    transform: translate(300px, -600px);
 }
+.big-cloud {
+    transform: translate(300px, -1200px);
+}
+
 
 .sign-in-container .forgot-title {
     font-family: 'Bodoni Moda', serif;
+    font-size: 75px;
+    transform: translate(275px,-1325px);
+}
+.sign-in-container h2, .sign-in-container h3 {
+    transform: translate(275px ,-1385px);
+    font-weight: lighter;
     font-size: 50px;
+
+}
+
+.forgot-password-form, .send-code-btn-div {
+    transform: translateY(-1400px);
+    margin-bottom: 20px;
+}
+
+.forgot-password-form input {
+
+    background-color: #E9D5CC;
+    color: #0B7784;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    width: calc(100% - 650px);
+    z-index: -1;
+}
+
+.forgot-password-form input::placeholder {
+    color: #84B4A4;
+}
+
+.email-icon-forgot {
+    z-index: 1;
+    transform: translate(50px, 5px);
+    color: #0B7784;
+}
+
+.send-code-btn {
+    background-color: #E9D5CC;
+    color: #0B7784;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 15px 5px;
+    cursor: pointer;
+    width: calc(100% - 1050px);
+
+}
+.send-code-btn:hover {
+    color: #FE9F67;
+}
+
+/* Email Verification Style Rules */
+.code-input-field {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    transform: translateY(-1425px);
+}
+
+.code-input {
+    width: 100px;
+    height: 75px;
+    border: 1px solid #E9D5CC;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 25px;
+    color: #0B7784;
+    background-color: #E9D5CC;
+}
+
+.code-resend-p, .continue-btn {
+    transform: translateY( -1435px);
+    padding-top: 10px;
+}
+
+.new-password-form {
+    transform: translateY(-1400px);
+}
+
+.continue-to-home {
+    transform: translateY(-1400px);
+}
+
+.signup-header {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 105px;
+    transform: translate(235px, -500px);
+}
+
+.signup-forms {
+    transform: translateY(-400px);
+}
+
+.user-icon {
+    z-index: 1;
+    color: #0B7784;
+    transform: translate(50px, 5px);
+}
+
+.sign-up-btn {
+    transform: translateY(-500px);
 }

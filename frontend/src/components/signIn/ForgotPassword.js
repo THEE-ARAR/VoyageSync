@@ -26,8 +26,8 @@ export default function ForgotPassword() {
             <h2>Enter the email associated
                 <br/>with your account.
             </h2>
-            <div>
-                <FontAwesomeIcon icon={faEnvelope} size="2x" />
+            <div className='forgot-password-form'>
+                <FontAwesomeIcon icon={faEnvelope} size="2x" className='email-icon-forgot'/>
                 <input
                     type='email'
                     value={email}
@@ -35,8 +35,8 @@ export default function ForgotPassword() {
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </div>
-            <div>
-                <Link to='/recoverpassword'>Send Code.</Link>
+            <div className='send-code-btn-div'>
+                <Link to='/recoverpassword' className='send-code-btn'>Send Code</Link>
             </div>
         </div>
     )
