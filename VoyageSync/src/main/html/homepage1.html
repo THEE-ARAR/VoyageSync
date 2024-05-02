@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Example</title>
+    <style>
+        /* Basic Reset */
+        body, h1, p, ul, li, nav {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #E9D5CC; /* Nude */
+        }
+
+        header {
+            background-color: #0B7784; /* Primary */
+            color: #F9C2A6; /* Neutral */
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #36A79B; /* Secondary */
+        }
+
+        nav a {
+            color: #F9C2A6;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav a:hover, nav a:focus {
+            background-color: #FE9F67; /* Call-to-Action */
+            color: #0B7784;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+        }
+
+        li {
+            margin: 0 10px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+        }
+
+        /* Accessibility focused styles */
+        nav a:focus {
+            outline: 3px solid #FE9F67; /* Call-to-Action */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to Our Application</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="#home" aria-label="Home">Home</a></li>
+        <li><a href="#explore" aria-label="Explore">Explore</a></li>
+        <li><a href="#messages" aria-label="In-App Messaging">Messages</a></li>
+        <li><a href="#location" aria-label="Location Sharing">Location</a></li>
+        <li><a href="#profile" aria-label="Profile">Profile</a></li>
+    </ul>
+</nav>
+<script>
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const section = document.querySelector(this.getAttribute('href'));
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
