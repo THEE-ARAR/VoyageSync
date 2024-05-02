@@ -1,4 +1,5 @@
 package edu.famu.voyage.models;
+
 import com.google.cloud.Timestamp;
 import com.google.cloud.firestore.annotation.DocumentId;
 import com.google.firebase.database.annotations.Nullable;
