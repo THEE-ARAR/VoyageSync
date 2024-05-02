@@ -25,8 +25,13 @@ function HomePage() {
                     <li><a href="#profile" aria-label="Profile" onClick={(e) => handleClick(e, '#profile')}>Profile</a></li>
                 </ul>
             </nav>
+            <div className="content">
+                <p>VoyageSync is your one-stop travel companion. Whether you're exploring new destinations or keeping in touch with friends during your adventures, we've got you covered.</p>
+                <p>From in-app messaging to real-time location sharing, discover all the tools you need to make your travels seamless and exciting. Stay tuned as we continue to add more features that help connect and enhance your travel experiences.</p>
+            </div>
         </div>
     );
 }
+
 
 export default HomePage;
