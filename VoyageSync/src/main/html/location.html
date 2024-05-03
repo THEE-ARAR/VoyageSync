@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Sharing</title>
+    <style>
+        /* Colors */
+        :root {
+            --primary: #0B7784;
+            --secondary: #36A79B;
+            --neutral: #84B4A4;
+            --call-to-action: #FE9F67;
+            --neutral-light: #F9C2A6;
+            --nude: #E9D5CC;
+        }
+
+        /* Basic Reset */
+        body, h1, h2, h3, p, ul, li, table {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--nude);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: var(--neutral-light);
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: var(--secondary);
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: var(--neutral-light);
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        nav a:hover, nav a:focus {
+            background-color: var(--call-to-action);
+            color: var(--primary);
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        section, .card {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        p, li {
+            margin-bottom: 20px;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--neutral);
+        }
+
+        th {
+            background-color: var(--secondary);
+            color: var(--neutral-light);
+        }
+
+        .card {
+            background: var(--neutral);
+            border: 1px solid var(--secondary);
+            border-radius: 5px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card img {
+            width: 150px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Location Sharing</h1>
+</header>
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Documentation</a>
+</nav>
+<div class="container">
+    <section>
+        <h2>Stay Connected, Stay Safe</h2>
+        <p>Sharing your location with loved ones has never been easier or more secure! Our location sharing feature allows you to share your real-time location with selected contacts, giving them peace of mind and keeping you connected wherever you go.</p>
+    </section>
+    <section>
+        <h2>How It Works</h2>
+        <ol>
+            <li>Open the app and navigate to the location sharing section.</li>
+            <li>Select the contacts you want to share your location with.</li>
+            <li>Set the duration for how long you want to share your location.</li>
+            <li>That's it! Your selected contacts will now receive real-time updates of your location.</li>
+        </ol>
+    </section>
+    <section>
+        <h2>Privacy and Security</h2>
+        <p>We take your privacy and security seriously. Your location data is encrypted and stored securely on our servers. Only the contacts you choose will have access to your shared location, and you can stop sharing at any time with just a few taps.</p>
+    </section>
+    <section>
+        <h2>Additional Features</h2>
+        <ul>
+            <li>View your location history and manage shared locations.</li>
+            <li>Receive notifications when your contacts arrive at or leave a location.</li>
+            <li>Customize sharing preferences and set expiration times.</li>
+        </ul>
+    </section>
+    <!-- New card sections -->
+    <div class="card">
+        <img src="https://static01.nyt.com/images/2021/02/23/science/24tb-newmap-video-image/24tb-newmap-video-image-superJumbo.jpg" alt="Global Map">
+        <div class="card-content">
+            <h2>Global Map</h2>
+            <p>View your location and the locations of your friends on a comprehensive global map, updated in real-time for accuracy and precision.</p>
+        </div>
+    </div>
+    <div class="card">
+        <img src="https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/07/06/10/snapchatmap.jpg?width=1200&auto=webp&quality=75" alt="Friends Location">
+        <div class="card-content">
+            <h2>Friends Location</h2>
+            <p>See where your friends are in real-time, helping you stay connected and making meet-ups easier than ever before.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
