@@ -1,33 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import './Profile.css';
 import { Link } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
 
 function Profile() {
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState({
+        username: "John Doe",
+        email: "johndoe@example.com",
+        bio: "#CatchingFlightsNotFeelingsandThatsOnSpirit;)",
+        interests: ["Travel", "Photography", "Hiking"]
+    });
 
     useEffect(() => {
-        const auth = getAuth(); // Extracted getAuth() call
+        // Mock fetchUserData function
         const fetchUserData = async () => {
+            // Simulate fetching data from backend (since backend is not working)
+            // In a real scenario, this would be replaced with an API call
             try {
-                const user = auth.currentUser;
+                // Simulate delay
+                await new Promise(resolve => setTimeout(resolve, 1000));
 
-                if (user) {
-                    setUserData({
-                        userId: user.uid,
-                        email: user.email,
-                        username: user.displayName || 'John Doe',
-                    });
-                } else {
-                    console.error('No user is authenticated');
-                    // Handle not authenticated user case
-                }
+                // Mock user data
+                const mockUserData = {
+                    username: "Jane Smith",
+                    email: "janesmith@example.com",
+                    bio: "#CatchingFlightsNotFeelingsandThatsOnSpirit;).",
+                    interests: ["Travel", "Photography", "Hiking", "Cooking", "Nature"]
+                };
+
+                // Set mock user data
+                setUserData(mockUserData);
             } catch (error) {
                 console.error('Error fetching user data:', error);
             }
         };
+
+        // Call fetchUserData
         fetchUserData();
-    }, [getAuth()]); // Dependency array with getAuth()
+    }, []);
 
     return (
         <div>
@@ -46,9 +55,14 @@ function Profile() {
             <div className="content">
                 <p className="big-text">Your Profile</p>
                 {userData && (
-                    <div className="bubble">
-                        <p>Name: {userData.username}</p>
-                        <p>Email: {userData.email}</p>
+                    <div className="profile-info">
+                        <img src="https://via.placeholder.com/150" alt="Random Placeholder" className="avatar" />
+                        <div className="bubble">
+                            <p>Name: {userData.username}</p>
+                            <p>Email: {userData.email}</p>
+                            <p>Bio: {userData.bio}</p>
+                            <p>Interests: {userData.interests.join(", ")}</p>
+                        </div>
                     </div>
                 )}
             </div>
