@@ -32,6 +32,7 @@ function App() {
             <Route path="/messages" element={<Messages />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/explore' element={<Explore />} />
+            <Route path='/location' element={<Location />} />
 
 
         </Routes>
