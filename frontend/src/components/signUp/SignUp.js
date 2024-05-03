@@ -11,8 +11,53 @@ export default function SignUp() {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [confirmPassword, setConfirmPassword] = React.useState('');
-    const [ showPassword, setShowPassword] = React.useState(true);
+    const [showPassword, setShowPassword] = React.useState(false);
+    const [setError] = useState(null);
+    const [loading, setLoading] = useState(true);
 
+    const createUser = async () => {
+        try {
+            setLoading(true);
+            const response = await fetch("/api/users/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, email, password }),
+            });
+            const data = await response.json();
+            if (response.ok) {
+                // User created successfully, handle success (e.g., redirect to login page)
+                console.log("User created successfully:", data);
+            } else {
+                // Server returned error response, handle error
+                setError(data.message || "Failed to create user");
+            }
+        } catch (error) {
+            console.error("Error creating user:", error);
+            // Handle network errors
+            setError("Failed to create user. Please try again later.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Validate input fields
+        if (!username || !email || !password || !confirmPassword) {
+            setError("All fields are required.");
+            return;
+        }
+        if (password !== confirmPassword) {
+            setError("Passwords do not match.");
+            return;
+        }
+        // Reset error state
+        setError(null);
+        // Send user data to backend
+        createUser();
+    };
 
     return (
         <div className='sign-in-container'>
