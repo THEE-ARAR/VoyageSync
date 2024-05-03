@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Trips</title>
+    <style>
+        /* Basic Reset */
+        body, h1, p, ul, li, nav, section {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #E9D5CC; /* Nude */
+            color: #0B7784; /* Primary */
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #0B7784; /* Primary */
+            color: #F9C2A6; /* Neutral */
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #36A79B; /* Secondary */
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #F9C2A6;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+
+        nav a:hover, nav a:focus {
+            background-color: #FE9F67; /* Call-to-Action */
+            color: #0B7784;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #84B4A4; /* Neutral */
+            border: 1px solid #36A79B; /* Secondary */
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 10px;
+            text-align: center;
+            color: white; /* Changed all text color to white */
+        }
+
+        .card-content h2 {
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .card img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Explore Amazing Trips</h1>
+</header>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#explore" class="active">Explore</a>
+    <a href="#about">About Us</a>
+</nav>
+<div class="container">
+    <section class="grid">
+        <div class="card">
+            <img src="https://i.pinimg.com/564x/eb/8a/01/eb8a0172bb64a0e80bf5aaad82fe9534.jpg" alt="Beautiful Beaches">
+            <div class="card-content">
+                <h2>Tropical Beach Paradise</h2>
+                <p>Explore white sandy beaches and crystal clear waters.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images-sp.summitpost.org/tr:e-sharpen,e-contrast-1,fit-max,q-60,w-500/593025.JPG" alt="Mountain Adventure">
+            <div class="card-content">
+                <h2>Mountain Adventure</h2>
+                <p>Climb breathtaking peaks and enjoy stunning vistas.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://www.frommers.com/system/media_items/attachments/000/863/401/s980/TXTags_River_Dining.jpg?1541830283" alt="City Tours">
+            <div class="card-content">
+                <h2>City Tours</h2>
+                <p>Discover the rich history and vibrant culture of major cities.</p>
+            </div>
+        </div>
+        <!-- Additional cards below -->
+        <div class="card">
+            <img src="https://cdn.adventure-life.com/11/36/65/Safari/1300x820.webp" alt="Safari Adventure">
+            <div class="card-content">
+                <h2>Safari Adventure</h2>
+                <p>Experience the thrill of wildlife up close in their natural habitat.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://communication272spring2014.files.wordpress.com/2014/01/float.jpg?w=640" alt="Cultural Festivals">
+            <div class="card-content">
+                <h2>Cultural Festivals</h2>
+                <p>Participate in colorful and vibrant festivals around the world.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://t4.ftcdn.net/jpg/07/25/48/11/360_F_725481153_P2DNpA5oruHOyZnJtqHetc9BQ1wSavjQ.jpg" alt="Underwater Exploration">
+            <div class="card-content">
+                <h2>Underwater Exploration</h2>
+                <p>Dive into the depths to explore coral reefs and marine life.</p>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    // Simulated data fetch and display logic
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', function() {
+            alert('More detailed information can be shown in a modal or another detailed section!');
+        });
+    });
+</script>
+</body>
+</html>
+
