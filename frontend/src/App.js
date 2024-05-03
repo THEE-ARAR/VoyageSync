@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'firebase/auth';
 import 'firebase/firestore';
-import firebase from './Database';
+//import firebase from './Database';
 
 import StartPage from "./components/StartPage";
 import SignIn from "./components/signIn/SignIn";

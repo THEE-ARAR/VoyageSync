@@ -76,8 +76,14 @@ nav a:hover, nav a:focus {
 }
 
 .back-button {
-    text-align: center;
-    margin-bottom: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: lightskyblue;
+    color: #84B4A4;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {

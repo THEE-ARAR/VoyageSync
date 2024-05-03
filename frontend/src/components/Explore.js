@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Explore() {
     useEffect(() => {
         const handleCardClick = () => {
-            alert('More detailed information can be shown in a modal or another detailed section!');
+            alert('More detailed information can be shown soon!');
         };
 
         document.querySelectorAll('.card').forEach(card => {
@@ -32,6 +32,9 @@ function Explore() {
                     <li><Link to="/profile">Profile</Link></li>
                 </ul>
             </nav>
+            <div className="back-button">
+                <Link to="/home">Back</Link>
+            </div>
             <div className="container">
                 <section className="grid">
                     <div className="card">
@@ -43,16 +46,18 @@ function Explore() {
                         </div>
                     </div>
                     <div className="card">
-                        <img src="https://images-sp.summitpost.org/tr:e-sharpen,e-contrast-1,fit-max,q-60,w-500/593025.JPG"
-                             alt="Mountain Adventure"/>
+                        <img
+                            src="https://images-sp.summitpost.org/tr:e-sharpen,e-contrast-1,fit-max,q-60,w-500/593025.JPG"
+                            alt="Mountain Adventure"/>
                         <div className="card-content">
                             <h2>Mountain Adventure</h2>
                             <p>Climb breathtaking peaks and enjoy stunning vistas.</p>
                         </div>
                     </div>
                     <div className="card">
-                        <img src="https://www.frommers.com/system/media_items/attachments/000/863/401/s980/TXTags_River_Dining.jpg?1541830283"
-                             alt="City Tours"/>
+                        <img
+                            src="https://www.frommers.com/system/media_items/attachments/000/863/401/s980/TXTags_River_Dining.jpg?1541830283"
+                            alt="City Tours"/>
                         <div className="card-content">
                             <h2>City Tours</h2>
                             <p>Discover the rich history and vibrant culture of major cities.</p>
@@ -76,17 +81,15 @@ function Explore() {
                         </div>
                     </div>
                     <div className="card">
-                        <img src="https://t4.ftcdn.net/jpg/07/25/48/11/360_F_725481153_P2DNpA5oruHOyZnJtqHetc9BQ1wSavjQ.jpg"
-                             alt="Underwater Exploration"/>
+                        <img
+                            src="https://t4.ftcdn.net/jpg/07/25/48/11/360_F_725481153_P2DNpA5oruHOyZnJtqHetc9BQ1wSavjQ.jpg"
+                            alt="Underwater Exploration"/>
                         <div className="card-content">
                             <h2>Underwater Exploration</h2>
                             <p>Dive into the depths to explore coral reefs and marine life.</p>
                         </div>
                     </div>
                 </section>
-            </div>
-            <div className="back-button">
-                <Link to="/home">Back</Link>
             </div>
         </div>
     );
