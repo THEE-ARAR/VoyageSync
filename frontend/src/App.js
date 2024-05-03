@@ -14,6 +14,8 @@ import EmailVerification from "./components/signIn/EmailVerification";
 import NewPassword from "./components/signIn/NewPassword";
 import Profile from "./components/Profile";
 import Explore from "./components/Explore";
+import Location from "./components/Location";
+
 
 
 
