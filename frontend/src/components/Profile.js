@@ -7,9 +7,9 @@ function Profile() {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
+        const auth = getAuth(); // Extracted getAuth() call
         const fetchUserData = async () => {
             try {
-                const auth = getAuth();
                 const user = auth.currentUser;
 
                 if (user) {
@@ -26,9 +26,8 @@ function Profile() {
                 console.error('Error fetching user data:', error);
             }
         };
-
         fetchUserData();
-    }, []);
+    }, [getAuth()]); // Dependency array with getAuth()
 
     return (
         <div>

@@ -13,6 +13,7 @@ import ForgotPassword from "./components/signIn/ForgotPassword";
 import EmailVerification from "./components/signIn/EmailVerification";
 import NewPassword from "./components/signIn/NewPassword";
 import Profile from "./components/Profile";
+import Explore from "./components/Explore";
 
 
 
@@ -30,7 +31,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
             <Route path="/messages" element={<Messages />} />
             <Route path='/profile' element={<Profile />} />
-
+            <Route path='/explore' element={<Explore />} />
 
         </Routes>
       </Router>
