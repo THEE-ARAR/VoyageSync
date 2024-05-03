@@ -48,14 +48,16 @@ button:hover {
 }
 
 .back-button {
+    display: inline-block;
     padding: 10px 20px;
+    background-color: black;
+    color: #84B4A4;
     border: none;
-    background-color: #E9D5CC;
-    color: #0B7784;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.back-button:hover {
+/*.back-button:hover {
     background-color: #bbb;
-}
+}*/
